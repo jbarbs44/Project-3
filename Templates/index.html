@@ -6,7 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Nobel Prize Recipients </title>
+  <!-- <style>  body {
+    /* background-image: url(https://scx2.b-cdn.net/gfx/news/hires/2011/clipiyiiboard-1.jpg); */
 
+  }
+    
+  </style> -->
+ 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -14,13 +20,36 @@
 <!-- Leaflet-Wikipedia CSS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet-wikipedia/dist/leaflet-wikipedia.css" />
   <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="static.style.css">
 </head>
 
 <body>
-
-  <!-- The div that holds our map -->
-  <div id="map"></div>
+  <header>
+    <div class="header-container">
+      
+      <!-- Other header content here -->
+    </div>
+  </header>
+  <div class="container">
+    <!-- <div class="row"> -->
+      <div class="jumbotron">
+        <h1>Nobel Peace Prize Recipients Data</h1>
+        <p>Use the Interactive Map Below to Find Out More Information </p>
+  <!-- The div that holds our map and Bar Charts -->
+  
+  <div class="col-md-5">
+    <div id="male"></div>
+  </div>
+  <div class="col-md-5">
+    <div id="female"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div id="map"></div>
+  </div>
+</div>
+</div>
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
@@ -33,6 +62,7 @@
   <!-- Our JavaScript -->
   <!-- <script type="text/javascript" src="Leaflet_Part_1/static/js/logic.js"></script> -->
   <script type="text/javascript" src="plots.js"></script>
+  <script src="{{ url_for('static', filename='plots.js') }}"></script>
 </body>
 
 </html>

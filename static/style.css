@@ -1,0 +1,38 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#map,
+body,
+html {
+  height: 30%;
+}
+
+.container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  width: 80%;
+}
+
+.jumbotron {
+  background-image: url(https://scx2.b-cdn.net/gfx/news/hires/2015/561381b103db1.jpeg);
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  border-radius: 20px;
+  color: #070707;
+}
+
+.jumbotron h1 {
+  font-size: 36px;
+  color: #fff;
+}
+
+.jumbotron p {
+  font-size: 18px;
+  color: #fff;
+}
