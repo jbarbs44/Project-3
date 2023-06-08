@@ -1,8 +1,7 @@
-let winnersAPI = "/api/v1.0/Winners"
+let winnersAPI = "/api/v1.0/winners"
 
-function init () {
+function innit () {
     d3.json(winnersAPI).then(function(data) {
-        console.log(data)
-    
+        
     })
-}
+};
