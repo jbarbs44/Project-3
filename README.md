@@ -18,14 +18,14 @@ We were succesfully able to: <br/>
 
 ## **Technology/Tools used**
 * Backend <br/>
-    *a <br/>
-    *b <br/>
-    *c <br/>
+    *Flask <br/>
+    *SQLite <br/>
+    *numpy <br/>
 
 * Frontend <br/>
-    *a <br/>
-    *b <br/>
-    *c <br/>
+    *JS <br/>
+    *d3 <br/>
+    *Plotly <br/>
 
 **Team Members:** <br/>
 Jason Barbagallo: https://github.com/jbarbs44 <br/>
