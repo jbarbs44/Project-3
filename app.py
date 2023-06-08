@@ -1,11 +1,10 @@
 import numpy as np
-
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect
 import pandas as pd
-import os 
+from datetime import datetime
 from flask import Flask, jsonify, render_template
 
 
@@ -39,26 +38,31 @@ def welcome():
     return render_template('index.html')
 
 
-@app.route("/api/v1.0/Year")
-def Year():
+@app.route("/api/v1.0/year")
+def NobelYear():
     #Create our session (link) from Python to the DB
     session = Session(engine)
 
     #Query all years
     results = session.query(Winners.Year).all()
 
+    # Close the session
     session.close()
 
-    return jsonify(results)
+    # Convert list of tuples into normal list and assign year as integer
+    years = [int(year) for year in np.ravel(results)]
 
-@app.route("/api/v1.0/Name")
-def Name():
+    return jsonify(years)
+
+@app.route("/api/v1.0/name")
+def NobelName():
     #Create our session (link) from Python to the DB
     session = Session(engine)
 
     #Query all names
     results = session.query(Winners.Name).all()
 
+    # Close the session
     session.close()
 
     # Convert list of tuples into normal list
@@ -66,20 +70,24 @@ def Name():
 
     return jsonify(all_names)
 
-@app.route("/api/v1.0/Gender")
-def Gender():
+@app.route("/api/v1.0/gender")
+def NobelGender():
     #Create our session (link) from Python to the DB
     session = Session(engine)
 
     #Query gender for all 
     results = session.query(Winners.Gender).all()
 
+    # Close the session
     session.close()
 
-    return jsonify(results)
+    # Convert list of tuples into normal list
+    genders = list(np.ravel(results))
 
-@app.route("/api/v1.0/Winners")
-def Winners():
+    return jsonify(genders)
+
+@app.route("/api/v1.0/winners")
+def NobelWinners():
     #Create our session (link) from Python to the DB
     session = Session(engine)
 
@@ -88,11 +96,16 @@ def Winners():
                             Winners.Gender, Winners.Motivation, Winners.Birth_Date,
                             Winners.Birth_Country, Winners.Death_Date).all()
     
+    # Close the session
     session.close()
 
     # Create a dictionary from the row data and append to a list of all_winners
     all_winners = []
     for Name, Year, Category, Gender, Motivation, Birth_Date, Birth_Country, Death_Date in results:
+        # Birth_Date = datetime.strptime(Birth_Date, "%m-%d-%Y") if Birth_Date else None
+        # Death_Date = datetime.strptime(Death_Date, "%m-%d-%Y") if Death_Date else None
+        # birth_date_formatted = Birth_Date.strftime("%m/%d/%Y") if Birth_Date else None
+        # death_date_formatted = Death_Date.strftime("%m/%d/%Y") if Death_Date else None
         winner_dict = {}
         winner_dict["Name"] = Name
         winner_dict["Year"] = Year
