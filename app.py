@@ -12,7 +12,7 @@ from flask import Flask, jsonify, render_template
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("sqlite:///nobel_prize_winners.sqlite")
+engine = create_engine("sqlite:///data/nobel_prize.db")
 
 inspector = inspect(engine)
 print(inspector.get_table_names())
@@ -22,7 +22,7 @@ Base = automap_base()
 Base.prepare(autoload_with=engine, reflect = True)
 
 # Save reference to the table
-Winners = Base.classes.nobel_winners
+Winners = Base.classes.recipients
 
 #################################################
 # Flask Setup
@@ -36,7 +36,7 @@ app = Flask(__name__)
 @app.route("/")
 def welcome():
     """List all available api routes."""
-    return('index.html')
+    return render_template('index.html')
 
 
 @app.route("/api/v1.0/Year")
