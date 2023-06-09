@@ -11,7 +11,7 @@
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin="" /> -->
   <!-- Leaflet-Wikipedia CSS -->
-  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet-wikipedia/dist/leaflet-wikipedia.css" /> -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-wikipedia/dist/leaflet-wikipedia.css" />
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="/static/style.css">
     <!-- Leaflet JS
@@ -19,12 +19,10 @@
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>    
      Leaflet-Wikipedia JavaScript -->
-  <!-- <script src="https://unpkg.com/leaflet-wikipedia/dist/leaflet-wikipedia.js"></script> -->
+  <script src="https://unpkg.com/leaflet-wikipedia/dist/leaflet-wikipedia.js"></script>
   <!-- D3 JavaScript -->
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <!-- Our JavaScript -->
-  <!-- <script type="text/javascript" src="/static/plots.js"></script> -->
-  <script src="{{ url_for('static', filename='plots.js') }}"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+ 
 </head>
 
 <body>
@@ -35,15 +33,16 @@
     </div>
   </header>
   <div class="container">
-    <!-- <div class="row"> -->
+    <div class="row">
       <div class="jumbotron">
         <h1>Nobel Peace Prize Recipients Data</h1>
         <p>Use the Interactive Map Below to Find Out More Information </p>
+      
   <!-- The div that holds our map and Bar Charts -->
   <div class="col-md-5">
     <div id="male"></div>
   </div>
-  <div class="col-md-5">
+  <div class="col-md-10">
     <div id="female"></div>
   </div>
 </div>
@@ -53,27 +52,10 @@
   </div>
 </div>
 </div>
-<!-- <h4>Accessing shit</h4>
-<p>The following endpoints are available to access data:</p>
-<ul>
-    <li>
-      <p>Access a list of all Winners</p>
-        <a href="/api/v1.0/winners">/api/v1.0/Winners</a>
-    </li>
-    <li>
-      <p>Get Year</p>
-        <a href="/api/v1.0/year">/api/v1.0/Year</a>  
-    </li>
-    <li>
-      <p>Get Names</p>
-        <a href="/api/v1.0/name">/api/v1.0/Name</a>
-    </li>
-    <li>
-        <p>get that Gender</p>
-        <a href="/api/v1.0/gender">/api/v1.0/Gender</a>
-    </li>
-</ul> -->
-
+<script src="{{ url_for('static', filename='plots.js') }}?v=173456"></script> <!-- change timestamp to force reload -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </body>
 
-</html>
+</html>   
+
+
