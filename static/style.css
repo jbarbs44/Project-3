@@ -1,21 +1,30 @@
-body {
-  padding: 0;
-  margin: 0;
+#map {
+  position: fixed;
+  width: 100%;
+  height: 38%;
+  bottom: 0;
+  left: 0;
 }
 
-#map,
-body,
-html {
-  height: 30%;
+.leaflet-container {
+  font-size: 1rem;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: black;
 }
 
 .container {
-  background-color: #f8f9fa;
+  background-color: #313336;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
-  width: 80%;
+  width: 100%;
 }
 
 .jumbotron {
@@ -29,10 +38,33 @@ html {
 
 .jumbotron h1 {
   font-size: 36px;
-  color: #fff;
+  color: #0a0a0a;
 }
 
 .jumbotron p {
   font-size: 18px;
-  color: #fff;
+  color: #0e0d0d;
+}
+
+
+#male {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 auto;
+  width: 45%;
+}
+
+#female {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 auto;
+  width: 45%;
+}
+
+#female {
+  margin-right: 5%;
+}
+
+#male {
+  margin-left: 5%;
 }

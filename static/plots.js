@@ -1,10 +1,13 @@
+
+
+
 function init() {
     let winnersAPI = "/api/v1.0/winners";
   
     d3.json(winnersAPI).then(function(data) {
       console.log(data);
       createPlots(data);
-      createMap(data);
+    
     });
   }
   
@@ -39,7 +42,7 @@ function init() {
       width: 500,
     };
   
-    Plotly.newPlot("male", [maleTrace], maleLayout);
+      Plotly.newPlot("male", [maleTrace], maleLayout);
   
     // Filter down data to females
     const femaleWinners = data.filter(d => d.Gender === 'female');
@@ -73,37 +76,7 @@ function init() {
     Plotly.newPlot("female", [femaleTrace], femaleLayout);
   }
   
-  function createMap(data) {
-    // Create a map object
-    var myMap = L.map("map", {
-      center: [37.09, -95.71],
-      zoom: 5,
-    });
-  
-    // Add a tile layer
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(myMap);
-  
-    // Create markers and generate Wikipedia URLs
-    data.forEach(item => {
-      const { Name, Birth_Country, Category, Motivation} = item;
-  
-      // Generate Wikipedia URL
-      const wikipediaURL = `https://en.wikipedia.org/wiki/${encodeURIComponent(Name)}`;
-  
-      // Create marker
-      L.marker([Birth_Country[0], Birth_Country[1]])
-        .addTo(myMap)
-        .bindPopup(`
-          <h3>${Name}</h3>
-          <p><strong>Birth Country:</strong> ${Birth_Country}</p>
-          <p><strong>Category:</strong> ${Category}</p>
-          <p><strong>Motivation:</strong> ${Motivation}</p>
-          <p><a href="${wikipediaURL}" target="_blank">More info on Wikipedia</a></p>
-        `);
-    });
-  }
   
   init();
-  
   
 

@@ -6,8 +6,11 @@ from sqlalchemy import create_engine, func, inspect
 import pandas as pd
 from datetime import datetime
 from flask import Flask, jsonify, render_template
+import folium
+import requests
 
 
+map = folium.Map(location=[0, 0], zoom_start=2)
 #################################################
 # Database Setup
 #################################################
@@ -102,10 +105,6 @@ def NobelWinners():
     # Create a dictionary from the row data and append to a list of all_winners
     all_winners = []
     for Name, Year, Category, Gender, Motivation, Birth_Date, Birth_Country, Death_Date in results:
-        # Birth_Date = datetime.strptime(Birth_Date, "%m-%d-%Y") if Birth_Date else None
-        # Death_Date = datetime.strptime(Death_Date, "%m-%d-%Y") if Death_Date else None
-        # birth_date_formatted = Birth_Date.strftime("%m/%d/%Y") if Birth_Date else None
-        # death_date_formatted = Death_Date.strftime("%m/%d/%Y") if Death_Date else None
         winner_dict = {}
         winner_dict["Name"] = Name
         winner_dict["Year"] = Year
@@ -115,13 +114,17 @@ def NobelWinners():
         winner_dict["Birth_Date"] = Birth_Date
         winner_dict["Birth_Country"] = Birth_Country
         winner_dict["Death_Date"] = Death_Date
+        # Retrieve Wikipedia data
+
+
         all_winners.append(winner_dict)
-    
+
     return jsonify(all_winners)
+    
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
 
 
 
