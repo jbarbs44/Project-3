@@ -96,27 +96,27 @@ def NobelWinners():
 
     #Query all Winners with information for markers
     results = session.query(Winners.Name, Winners.Year, Winners.Category, 
-                            Winners.Gender, Winners.Motivation, Winners.Birth_Date,
-                            Winners.Birth_Country, Winners.Death_Date).all()
+                            Winners.Gender, Winners.Motivation, Winners.Birth_Country,
+                            Winners.Birth_City ,Winners.Coordinates, Winners.Wikipedia_URL).all()
     
     # Close the session
     session.close()
 
     # Create a dictionary from the row data and append to a list of all_winners
     all_winners = []
-    for Name, Year, Category, Gender, Motivation, Birth_Date, Birth_Country, Death_Date in results:
+    for Name, Year, Category, Gender, Motivation, Birth_Country, Birth_City, Coordinates, Wiki_URL in results:
         winner_dict = {}
         winner_dict["Name"] = Name
         winner_dict["Year"] = Year
         winner_dict["Category"] = Category
         winner_dict["Gender"] = Gender
         winner_dict["Motivation"] = Motivation
-        winner_dict["Birth_Date"] = Birth_Date
         winner_dict["Birth_Country"] = Birth_Country
-        winner_dict["Death_Date"] = Death_Date
-        # Retrieve Wikipedia data
+        winner_dict["Birth_City"] = Birth_City
+        winner_dict["Coordinates"] = Coordinates
+        winner_dict["Wikipedia_URL"] = Wiki_URL
 
-
+        # Add to list of all_winners
         all_winners.append(winner_dict)
 
     return jsonify(all_winners)
