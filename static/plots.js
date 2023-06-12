@@ -32,6 +32,7 @@ function init() {
       orientation: "v",
     };
   
+    // Create Layout
     let maleLayout = {
       title: "Male Winners by Category",
       xaxis: {
