@@ -102,6 +102,8 @@ function createMap(data) {
   ).addTo(map);
 
 
+  // Create an object to store marker layers
+  let markerLayers = {};
     // Loop through the data and add markers to the map
     data.forEach(function(item) {
 
@@ -111,16 +113,35 @@ function createMap(data) {
       let longitude = parseFloat(coordinates[1]);
   
       // Add a marker to the map
-      let marker = L.marker([latitude, longitude]).addTo(map);
+      let marker = L.marker([latitude, longitude], {
+        icon: L.AwesomeMarkers.icon({
+          icon: 'info',
+          iconColor: 'white',
+          markerColor: 'green',
+          prefix: 'fa',
+        })
+      });
+
+      // Create a category layer if it doesn't exist
+      if (!markerLayers[item.Category]) {
+        markerLayers[item.Category] = L.layerGroup().addTo(map);
+      }
+
+      // Add the marker to the corresponding category layer
+      marker.addTo(markerLayers[item.Category]);
+
+      
       marker.bindPopup('<b>' + item.Name + '</b><br>' + item.Motivation + '<br>' + item.Gender + '<br>' + item.Category + '<br><a href="' + item.Wikipedia_URL + '">Wikipedia</a>');
 
       // Add a tooltip to the marker
       marker.on('mouseover', function() {
         marker.bindTooltip('Click to Learn More').openTooltip();
       });
-
-
     });
+           // Create the overlay control
+  let overlayControl = L.control.layers(null, markerLayers).addTo(map);
+  map.addControl(overlayControl);
+  
   }
 
   // Initialize the page
