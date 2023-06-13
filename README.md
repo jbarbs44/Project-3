@@ -4,16 +4,14 @@ Visualizing data is a form of story telling in which we convey a story through i
 
 
 ## **Introduction**<br/>
-In this project, we're practicing visualizing data with a full-stack application which allows a user to explore data related to all Nobel Prize Winners from 1901 - 2022 <br/>
+In this project, we're practicing visualizing data with a full-stack application which allows a user to explore data related to all Nobel Prize Winners from 1901 - 2022. <br/>
 
 ## **Data**
 For our project, we have visualized data extracted from the following dataset available in the Resources folder <br/>
    * nobel_latest.csv <br/>
 
 ## **How to Run**
-* No additional packages have to be installed if `flask` , `numpy`, `gunicorn`, `sqlalchemy` and `pandas` are already in your program.
-Take your feet, step one at a time, repeat aggresively
-
+* No additional packages have to be installed if `flask` , `numpy`, `gunicorn`, `sqlalchemy`, `folium`, and `pandas` are already in your program. <br/>
 
 ## **Outcome**
 We were succesfully able to: <br/>
