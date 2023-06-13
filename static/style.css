@@ -6,9 +6,6 @@
   left: 0;
 }
 
-.leaflet-container {
-  font-size: 1rem;
-}
 
 html, body {
   width: 100%;
@@ -18,17 +15,9 @@ html, body {
   background-color: black;
 }
 
-.container {
-  background-color: #313336;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  width: 100%;
-}
 
 .jumbotron {
-  background-image: url(https://scx2.b-cdn.net/gfx/news/hires/2015/561381b103db1.jpeg);
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc1XXsMZc6tqX05XYFHls2b73TrKTkObwR3Q&usqp=CAU);
   background-size: cover;
   background-position: center;
   padding: 20px;
@@ -38,12 +27,14 @@ html, body {
 
 .jumbotron h1 {
   font-size: 36px;
-  color: #0a0a0a;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .jumbotron p {
   font-size: 18px;
-  color: #0e0d0d;
+  font-weight: 600;
+  color: #fdfcfc;
 }
 
 
@@ -61,10 +52,3 @@ html, body {
   width: 45%;
 }
 
-#female {
-  margin-right: 5%;
-}
-
-#male {
-  margin-left: 5%;
-}
