@@ -24,11 +24,12 @@ We were succesfully able to: <br/>
 * Backend <br/>
     *Flask <br/>
     *SQLite <br/>
-    *numpy <br/>
+    *Numpy <br/>
+    *Folium <br/>
 
 * Frontend <br/>
     *JS <br/>
-    *d3 <br/>
+    *D3 <br/>
     *Plotly <br/>
 
 **Team Members:** <br/>
